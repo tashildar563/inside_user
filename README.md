@@ -30,8 +30,10 @@ Documentation
 
 ### 1 Post-Deployment Scripts:
 
-| —-Create databases CREATE DATABASE journal; CREATE DATABASE user\_db; —-Insert ROLE\_ADMIN in db:	INSERT INTO \`user\_db\`.\`role\` 	( \`is\_deleted\`, name\`)	VALUES(FALSE,'ROLE\_ADMIN');\---Insert Super user in db:	INSERT INTO \`user\_db\`.\`user\` 	( \`email\`, \`first\_name\`, \`is\_deleted\`, \`last\_name\`, \`password\`, \`role\_id\`)	values('superuser@gemail.com', 'superuser', FALSE, 'super', 	'$2a$10$RGQHNlWHsAwDKqOA5Z1y1OpdLx1vww8kwEql3TbzDuTVvHQMt1gwa\`role\`', 	(SELECT id FROM \`user\_db\`.\`role\` WHERE \`name\`='ADMIN')); |
-| :---- |
+### Create databases
+```sql 
+CREATE DATABASE journal; CREATE DATABASE user_db; —-Insert ROLE_ADMIN in db:�� INSERT INTO `user_db`.`role` � ( `is_deleted`, name`)� VALUES(FALSE,'ROLE_ADMIN');��---Insert Super user in db:�� INSERT INTO `user_db`.`user` � ( `email`, `first_name`, `is_deleted`, `last_name`, `password`, `role_id`)� values('superuser@gemail.com', 'superuser', FALSE, 'super', '$2a$10$RGQHNlWHsAwDKqOA5Z1y1OpdLx1vww8kwEql3TbzDuTVvHQMt1gwa`role`', � (SELECT id FROM `user_db`.`role` WHERE `name`='ADMIN'));
+```
 
 It is mandatory to first create the superuser using the provided script.
 
